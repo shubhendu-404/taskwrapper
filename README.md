@@ -63,6 +63,7 @@ The `add` and `list` commands have special behavior when a `.twconfig` file is f
 -   `tw list`: Lists only the tasks for the current project.
 -   `tw list --all`: Ignores the project scope and shows all tasks.
 -   `tw notes <id>`: A special command to view or edit notes for a task.
+-   `tw twconfig`: Displays help and examples for the `.twconfig` file.
 
 ### Standard Commands (Pass-through)
 

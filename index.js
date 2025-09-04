@@ -88,6 +88,35 @@ program
     }
   });
 
+// ⚙️ .twconfig help
+program
+  .command("twconfig")
+  .description("Show help for .twconfig file")
+  .action(() => {
+    console.log(`
+The .twconfig file is used to configure project-specific settings for tw.
+
+How it works:
+  tw searches for a .twconfig file in the current directory and all parent directories, up to your home directory.
+  The first .twconfig file found is used.
+
+Configuration options:
+  project: The default project name to apply to tasks.
+  default_tags: Comma-separated tags to apply to new tasks (e.g., "work,urgent").
+  due: A default due date to apply to new tasks (e.g., "tomorrow", "eod").
+  report: A default report to use when listing tasks (e.g., "next", "waiting").
+  context: A default context to apply to tasks (e.g., "home", "office").
+
+Example .twconfig file:
+  # .twconfig
+  project = MyAwesomeProject
+  default_tags = cli,dev
+  due = eod
+  report = next
+  context = office
+`);
+  });
+
 // ➕ Add task (auto project/tags/due)
 program
   .command("add [desc...]")
