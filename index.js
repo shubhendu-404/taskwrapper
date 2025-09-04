@@ -171,7 +171,25 @@ program
     runTask(["deleted", ...args]);
   });
 
+// 🚀 Initialize .twconfig file
+program
+  .command("init")
+  .description("Initialize a new .twconfig file in the current directory")
+  .action(() => {
+    const twconfigPath = path.join(process.cwd(), ".twconfig");
+    const currentDirName = path.basename(process.cwd());
+    const initialContent = `# .twconfig\n\n# The project name to be assigned in Taskwarrior\nproject = ${currentDirName}\n\n# Default tags for all tasks in this project (comma-separated)\n# default_tags = cli,dev\n\n# A default due date to apply to new tasks (e.g., "tomorrow", "eod")\n# due = eod\n\n# A default report to use when listing tasks (e.g., "next", "waiting")\n# report = next\n\n# A default context to apply to tasks (e.g., "home", "office")\n# context = office\n`;
+
+    if (fs.existsSync(twconfigPath)) {
+      console.log(`⚠️ .twconfig already exists at ${twconfigPath}. Aborting initialization.`);
+    } else {
+      fs.writeFileSync(twconfigPath, initialContent);
+      console.log(`✅ .twconfig file created at ${twconfigPath}`);
+    }
+  });
+
 // 🔄 Fallback for all other task commands
+
 program.on('command:*', (operands) => {
   // If we get here, no specific command was found.
   // We can treat it as a raw pass-through to `task`.

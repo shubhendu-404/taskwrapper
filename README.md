@@ -68,6 +68,7 @@ The `add`, `list`, `completed`, and `deleted` commands have special behavior whe
 -   `tw deleted --all`: Ignores the project scope and shows all deleted tasks.
 -   `tw notes <id>`: A special command to view or edit notes for a task.
 -   `tw twconfig`: Displays help and examples for the `.twconfig` file.
+-   `tw init`: Initializes a new `.twconfig` file in the current directory.
 
 ### Standard Commands (Pass-through)
 
