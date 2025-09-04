@@ -57,11 +57,15 @@ default_tags = dev,backend
 
 ### Special Commands
 
-The `add` and `list` commands have special behavior when a `.twconfig` file is found:
+The `add`, `list`, `completed`, and `deleted` commands have special behavior when a `.twconfig` file is found:
 
 -   `tw add "Fix API bug"`: Automatically adds the task with the project and default tags from your config file.
 -   `tw list`: Lists only the tasks for the current project.
 -   `tw list --all`: Ignores the project scope and shows all tasks.
+-   `tw completed`: Lists only the completed tasks for the current project.
+-   `tw completed --all`: Ignores the project scope and shows all completed tasks.
+-   `tw deleted`: Lists only the deleted tasks for the current project.
+-   `tw deleted --all`: Ignores the project scope and shows all deleted tasks.
 -   `tw notes <id>`: A special command to view or edit notes for a task.
 -   `tw twconfig`: Displays help and examples for the `.twconfig` file.
 

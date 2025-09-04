@@ -145,6 +145,32 @@ program
     runTask(["list", ...args]);
   });
 
+// ✅ Completed tasks (scoped to project)
+program
+  .command("completed")
+  .description("List completed tasks (scoped to current project if defined)")
+  .option("--all", "Ignore project scope and show all tasks")
+  .action((options) => {
+    const args = [];
+    if (!options.all && cfg.project) {
+      args.push(`project:${cfg.project}`);
+    }
+    runTask(["completed", ...args]);
+  });
+
+// 🗑️ Deleted tasks (scoped to project)
+program
+  .command("deleted")
+  .description("List deleted tasks (scoped to current project if defined)")
+  .option("--all", "Ignore project scope and show all tasks")
+  .action((options) => {
+    const args = [];
+    if (!options.all && cfg.project) {
+      args.push(`project:${cfg.project}`);
+    }
+    runTask(["deleted", ...args]);
+  });
+
 // 🔄 Fallback for all other task commands
 program.on('command:*', (operands) => {
   // If we get here, no specific command was found.
