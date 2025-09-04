@@ -6,7 +6,7 @@
 
 ## ✨ Features
 - **Project Scoping**: Automatically applies project context to your tasks based on your current directory.
-- **Recursive Config Search**: Finds the `.taskproject` file in the current or any parent directory (up to your home directory), so you can run commands from anywhere in your project.
+- **Recursive Config Search**: Finds the `.twconfig` file in the current or any parent directory (up to your home directory), so you can run commands from anywhere in your project.
 - **Smart Command Wrapper**: Provides special handling for `add` and `list` while passing all other Taskwarrior commands through directly.
 - **Notes Support**: Attach detailed notes to tasks using a UDA (`notes`) field.
 
@@ -35,12 +35,12 @@
 
 ## ⚙️ Project Configuration
 
-`tw` looks for a `.taskproject` file in the current directory, and searches parent directories up to your home directory. This allows `tw` to apply per-project settings when running commands.
+`tw` looks for a `.twconfig` file in the current directory, and searches parent directories up to your home directory. This allows `tw` to apply per-project settings when running commands.
 
-Example `.taskproject` file (INI style):
+Example `.twconfig` file (INI style):
 
 ```ini
-# .taskproject
+# .twconfig
 
 # The project name to be assigned in Taskwarrior
 project = my-awesome-project
@@ -57,7 +57,7 @@ default_tags = dev,backend
 
 ### Special Commands
 
-The `add` and `list` commands have special behavior when a `.taskproject` file is found:
+The `add` and `list` commands have special behavior when a `.twconfig` file is found:
 
 -   `tw add "Fix API bug"`: Automatically adds the task with the project and default tags from your config file.
 -   `tw list`: Lists only the tasks for the current project.

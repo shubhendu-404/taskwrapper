@@ -14,7 +14,7 @@ function loadConfig() {
   let configPath = null;
 
   while (true) {
-    const potentialPath = path.join(currentDir, ".taskproject");
+    const potentialPath = path.join(currentDir, ".twconfig");
     if (fs.existsSync(potentialPath)) {
       configPath = potentialPath;
       break;
